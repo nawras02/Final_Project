@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JEditorPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
 
 public class MainFrame {
 
@@ -112,5 +113,18 @@ public class MainFrame {
 		dtrpnClickHereTo_2.setBounds(238, 230, 284, 31);
 		mainFram.getContentPane().add(dtrpnClickHereTo_2);
 		dtrpnClickHereTo_2.setText("Click here to exit the program.");
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(31, 56, 370, 2);
+		mainFram.getContentPane().add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(31, 199, 370, 2);
+		mainFram.getContentPane().add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setOrientation(SwingConstants.VERTICAL);
+		separator_2.setBounds(-17, 117, 370, 2);
+		mainFram.getContentPane().add(separator_2);
 	}
 }
