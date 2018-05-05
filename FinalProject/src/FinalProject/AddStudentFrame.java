@@ -149,6 +149,11 @@ public class AddStudentFrame {
 		addStudentFrame.getContentPane().add(separator_1);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAdd.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		btnAdd.setBounds(480, 404, 89, 38);
 		addStudentFrame.getContentPane().add(btnAdd);

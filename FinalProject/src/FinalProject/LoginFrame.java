@@ -87,8 +87,11 @@ public class LoginFrame {
 		btnRestart.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		btnRestart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txt_password.setText(null);
-				txt_username.setText(null);
+				if(!(JOptionPane.showConfirmDialog(loginFrame, "Are you sure you want to restart?" +
+						JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_NO_CANCEL_OPTION)) {
+					txt_password.setText(null);
+					txt_username.setText(null);
+				}
 			}
 		});
 		btnRestart.setBounds(163, 212, 89, 38);
@@ -98,8 +101,8 @@ public class LoginFrame {
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loginFrame = new JFrame("Exit");
-				if(JOptionPane.showConfirmDialog(loginFrame, "Do you want really to exit?", "Login System", JOptionPane.YES_NO_CANCEL_OPTION) ==
-				JOptionPane.YES_NO_CANCEL_OPTION) {
+				if(!(JOptionPane.showConfirmDialog(loginFrame, "Do you want really to exit?", "Login System", JOptionPane.YES_NO_CANCEL_OPTION) ==
+				JOptionPane.YES_NO_CANCEL_OPTION)) {
 					System.exit(0);
 				}
 			}
