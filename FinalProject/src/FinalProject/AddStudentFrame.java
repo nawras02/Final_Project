@@ -3,6 +3,10 @@ package FinalProject;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AddStudentFrame {
 
@@ -38,6 +42,21 @@ public class AddStudentFrame {
 		addStudentFrame = new JFrame();
 		addStudentFrame.setBounds(100, 100, 450, 300);
 		addStudentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addStudentFrame.getContentPane().setLayout(null);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				addStudentFrame.dispose();
+				
+				MainFrame mainFrame = new MainFrame();
+				mainFrame.mainScreen();
+			}
+		});
+		btnBack.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
+		btnBack.setBounds(335, 212, 89, 38);
+		addStudentFrame.getContentPane().add(btnBack);
 	}
 
 }

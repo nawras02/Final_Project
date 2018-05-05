@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
@@ -52,6 +54,31 @@ public class LoginFrame {
 		loginFrame.getContentPane().setLayout(null);
 		
 		JButton btnLogin = new JButton("Login ");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String password = txt_password.getText();
+				String username = txt_username.getText();
+			
+				if(!(password.isEmpty() || username.isEmpty())) {
+				if(password.contains("123") && username.contains("nawras")) {
+					txt_password.setText(null);
+					txt_username.setText(null);
+					loginFrame.dispose();
+					MainFrame mainFrame = new MainFrame();
+					mainFrame.mainScreen();
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Invalid Login Details!", "Login Error", JOptionPane.ERROR_MESSAGE);
+					txt_password.setText(null);
+					txt_username.setText(null);
+				}
+			}else {
+				JOptionPane.showMessageDialog(null, "WTF! You should fill the blanks dude!", "Login Error", JOptionPane.ERROR_MESSAGE);
+				txt_password.setText(null);
+				txt_username.setText(null);
+			}
+			}
+		});
 		btnLogin.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		btnLogin.setBounds(31, 212, 89, 38);
 		loginFrame.getContentPane().add(btnLogin);
@@ -60,12 +87,23 @@ public class LoginFrame {
 		btnRestart.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		btnRestart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				txt_password.setText(null);
+				txt_username.setText(null);
 			}
 		});
 		btnRestart.setBounds(163, 212, 89, 38);
 		loginFrame.getContentPane().add(btnRestart);
 		
 		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginFrame = new JFrame("Exit");
+				if(JOptionPane.showConfirmDialog(loginFrame, "Do you want really to exit?", "Login System", JOptionPane.YES_NO_CANCEL_OPTION) ==
+				JOptionPane.YES_NO_CANCEL_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
 		btnExit.setFont(new Font("Trebuchet MS", Font.BOLD, 13));
 		btnExit.setBounds(286, 212, 89, 38);
 		loginFrame.getContentPane().add(btnExit);
